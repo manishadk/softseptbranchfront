@@ -1,31 +1,36 @@
-const webpack = require('webpack');
-const path = require('path');
+var webpack = require('webpack')
+var path = require('path');
 
-// test 
+
 module.exports = {
 
-	// devTools:'source-map-inline'
-    entry: {
-        'index': './src/index.js'
-    },
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: '[name].[hash].js'
-    },
+devtool:'inline-source-map',
 
-    module: {
-        rules: [
-            {
-//  webpack regex // hash chunk hash
-            // rules kun kun files ma use garne regex regExp
-                test: /\.js$/, 
-                exclude: /node_modules/,
-                use:'babel-loader'
-            }
+entry:{
+	'index':'./src/index.js'
+},
 
-        ]
-    }
+output:{
+	path: path.resolve(__dirname,'dist'),
+	filename:'main.js'
+},
 
+module :{
+	rules: [
+				{ 
+					test:/\.js$/,
+					exclude:/node_modules/,
+					use:'babel-loader'
 
+				}
+	]
+},
+
+devServer:{
+	contentBase: path.join(__dirname,"public/"),
+	port:3000,
+	publicPath:"http://localhost:3000/dist/"
 
 }
+
+ }
