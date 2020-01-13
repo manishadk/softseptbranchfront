@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Button from '..Button/Button'
+import Button from '../Button/Button'
 
-class Login extends React.Components{
+class Login extends React.Component{
 
-contstructor(props){
+constructor(props){
 
-	super(props)
+	super(props);
 	this.state = { 
 	}
 }
@@ -26,8 +26,10 @@ Username:
 </label>
 {/*<input type="submit" value="submit" />*/}
 <div>
-<Button label="Save" />
-<div>
+<Button color="yellow" label="Save" />
+<Button color="red" label="Cancel" />
+
+</div>
 </form>
 
 	)

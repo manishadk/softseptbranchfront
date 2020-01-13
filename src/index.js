@@ -395,26 +395,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Login from './Login/Login'
 
-class Index extends React.Component{
-	// constructor(){
-	// 	super()
-	this.state= { 
-		xyz:10
-	}
-	// }
+class Index extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            xyz: 10
+        }
+    }
 
-	render(){
-
-		// jsx wrap error 
-		<div>
-
-<Login />
-</div>
-
-
-
-
-	}
+    render() {
+        // jsx wrap error 
+        return (
+		        <div>
+					<Login />
+				</div>
+        )
+    }
 }
-
 ReactDOM.render(<Index />, document.getElementById('root'))

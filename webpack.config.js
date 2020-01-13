@@ -22,6 +22,12 @@ module :{
 					exclude:/node_modules/,
 					use:'babel-loader'
 
+				},
+				{
+					test:/\.css$/,
+					exclude:/node_modules/,
+					use:['style-loader','css-loader']
+					// right side first css-loader conversts css to combiend array then style loader will work
 				}
 	]
 },
