@@ -25,7 +25,7 @@ module :{
 				},
 				{
 					test:/\.css$/,
-					exclude:/node_modules/,
+					// exclude:/node_modules/,
 					use:['style-loader','css-loader']
 					// right side first css-loader conversts css to combiend array then style loader will work
 				}

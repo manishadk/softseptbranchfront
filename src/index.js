@@ -394,6 +394,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Login from './Login/Login'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 class Index extends React.Component {
     constructor() {
