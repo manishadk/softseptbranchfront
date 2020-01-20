@@ -2,8 +2,8 @@
 
 // }
 
-// 	console.log('asdas');
-// 	conole.log('saasd')
+//  console.log('asdas');
+//  conole.log('saasd')
 
 // import React from 'react';
 // import ReactDOM from 'react-dom';
@@ -49,11 +49,11 @@
 
 // ReactDOM.render(
 
-// 	<ErrorDisplay message="404 error encoutnered !!" />,
-// 	document.getElementById('error')
+//  <ErrorDisplay message="404 error encoutnered !!" />,
+//  document.getElementById('error')
 
 
-// 	)
+//  )
 
 
 
@@ -91,7 +91,7 @@
 // //where
 // document.getElementById('react')
 
-// 	)
+//  )
 
 
 
@@ -154,14 +154,14 @@
 // React.createElement('input'), // child 1
 // React.createElement('p',null, new Date().toLocaleTimeString() ) // child 2
 
-// 	),
+//  ),
 
 // //where
 // document.getElementById('react')
 
 
 
-// 	)
+//  )
 
 
 
@@ -201,21 +201,21 @@
 // this.state = {testVar:123, testVarr:234234} // this should always be an object
 // }
 // componentWillMount(){
-// 	console.log('this is before compnent will mpunt in html DOM')
+//  console.log('this is before compnent will mpunt in html DOM')
 // }
 // componentDidMount(){
 // // data fetch // data diaply // self study
 // this.setState({
-// 	testVar:789
+//  testVar:789
 // })
 // }
 // shouldComponentUpdate(nextProps, nextState){
-// 	// default value is true , so this function returs true
+//  // default value is true , so this function returs true
 // //this.state.testVar // 123
 // // // 789
 // return this.state.testVar !== nextState.testVar
 // // compare these two, if htere is a differecne then probably update the compoent 
-// 	console.log(nextState)
+//  console.log(nextState)
 // }
 // componentWillUpdate(nextProps, nextState){
 // console.log(nextProps,nextState)
@@ -238,7 +238,7 @@
 
 // <h1>{this.state.testVar}</h1>
 
-// 	)
+//  )
 
 // }
 
@@ -306,7 +306,7 @@
 //     render() {
 
 //         return (
-//         	// user arrow function here it self
+//          // user arrow function here it self
 //             <button onClick = {this.submitHandler2}>Click This</button>
 //         )
 
@@ -323,13 +323,13 @@
 
 // constructor(props){
 
-// 	super(props)
+//  super(props)
 
-// 	this.state = { 
-// 		username:''
-// 	}
+//  this.state = { 
+//      username:''
+//  }
 
-// 	// this.handleChange = this.handleChange.bind(this)
+//  // this.handleChange = this.handleChange.bind(this)
 // }
 
 
@@ -352,7 +352,7 @@
 
 // console.log(event.target.value)
 // // if(event.target.value.length === 2 ){
-// // 	console.log('10')
+// //   console.log('10')
 // // }
 
 
@@ -378,7 +378,7 @@
 // </form>
 
 
-// 	)
+//  )
 
 // }
 // }
@@ -386,17 +386,36 @@
 // ReactDOM.render(<Myform />, document.getElementById('forms'))
 
 
-
+// registration 
+//login
+// user list with edit delete button 
 
 
 
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Login from './Login/Login'
+import Login from './Login/Login';
+import Registration from './Registration/Registration'
+
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+    Nav,
+    Container,
+    Row,
+    Col,
+    Card,
+    Button
+} from 'react-bootstrap'
+import {
+    BrowserRouter as Router,
+    Link,
+    Switch,
+    Route
 
-
+} from 'react-router-dom'
+//react naivigation // react native 
+// react-router-dom
 class Index extends React.Component {
     constructor() {
         super()
@@ -405,12 +424,115 @@ class Index extends React.Component {
         }
     }
 
+
+    Footer = () => {
+        return (
+                  <Row>
+                      <Col sm={4}>
+                      Contact US : 
+                      Ph. No: 
+                      email: test@test.com
+                      </Col>
+                        <Col sm={4}>
+                        Copyright@2019
+                      </Col>
+                        <Col sm={4}>
+                        Map
+                      </Col>
+                  </Row>
+
+
+            )
+    }
+
+    Notfound = () => {
+
+        return (
+
+            <h1>The page you are looking for diesnot exist 404 !!!</h1>
+
+            )
+
+    }
+    
+
     render() {
         // jsx wrap error 
         return (
-		        <div>
-					<Login />
-				</div>
+            <Router>
+
+                <Container>
+                  <Row style={{marginBottom:'50px'}}>
+                    <Col sm={8}>
+
+                    <Card style={{ width: '18rem' }}>
+                      {/*<Card.Img variant="top" src="holder.js/100px180" />*/}
+                      <Card.Body>
+                        <Card.Title>My Assigment</Card.Title>
+                        <Card.Text>
+                          Some quick example text to build on the card title and make up the bulk of
+                          the card's content.
+                        </Card.Text>
+                        <Button variant="primary">Go somewhere</Button>
+                      </Card.Body>
+                    </Card>
+
+                    
+                    </Col>
+                    <Col sm={4}>
+
+                    <h1>Welcome </h1>
+
+                    </Col>
+                  </Row>
+                  <Row>
+                <div> 
+                <Nav variant="pills" >
+                      <Nav.Item>
+                        <Nav.Link as={Link} to="/home" active={true} >Home</Nav.Link>
+                      </Nav.Item>
+                     <Nav.Item>
+                        <Nav.Link as={Link} to="/login" >Login</Nav.Link>
+                      </Nav.Item>
+                     <Nav.Item>
+                        <Nav.Link as={Link} to="/registration" >Registration</Nav.Link>
+                      </Nav.Item>
+                    </Nav>
+                </div>
+                  </Row>
+                  <Row>
+                  </Row>
+                    < this.Footer /> // because this is in this class 
+            </Container>
+
+            
+
+
+
+
+
+
+            <Switch>
+            {/*    <Route path="/"> // all paths having / in their urls
+                    < Login />
+                </Route>
+            */}
+
+
+                <Route exact path="/login" component={Login} />
+
+                <Route exact path="/registration">
+                    < Registration />
+                </Route>
+
+                <Route  component={this.Notfound} />
+
+                
+
+            </Switch>
+
+
+              </Router>
         )
     }
 }
