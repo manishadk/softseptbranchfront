@@ -5,36 +5,48 @@
 //  console.log('asdas');
 //  conole.log('saasd')
 
+// cerate-react-app 
 // import React from 'react';
 // import ReactDOM from 'react-dom';
 
 
-//component based resuable 
+// component based resuable 
 // function use, class use to make componenets 
 
-// component banako ho using funciotn 
-// function Button(props) { // this is a componenet which can be resued 
 
+// function Button(props) { // this is a componenet which can be resued 
 //     return <button type="submit">{props.label }</button>
+
+
+// }
+
+                    //what // where 
+// ReactDOM.render(<Button label="Save" xyz="123" color="green" />, document.getElementById('react')) { ReactDOM.render(<Button label="Cancel" xyz="123" />  , document.getElementById('reactt')) }
+
+
+// class Buttonn extends React.Component {
+
+
+// constructor(){  //function default function
+
+// super()
 
 // }
 
 
-// ReactDOM.render(<Button label="Save" xyz="123" />, document.getElementById('react')) { ReactDOM.render(<Button label="Cancel" xyz="123" />  , document.getElementById('reactt')) }
+// render() {
 
 
-
-// // class based 
-
-
-// class Buttonn extends React.Component {
-//     render() {
 //         return (
 
 //             <button>{this.props.label}</button>
 //         )
 //     }
 // }
+
+
+
+
 
 // ReactDOM.render(<Buttonn label="Save" />, document.getElementById('reactt'))
 
@@ -199,11 +211,13 @@
 
 // super(props) // base class constru ctor initilize 
 // this.state = {testVar:123, testVarr:234234} // this should always be an object
-// }
+// // }
 // componentWillMount(){
 //  console.log('this is before compnent will mpunt in html DOM')
 // }
 // componentDidMount(){
+//     // axios.get()
+
 // // data fetch // data diaply // self study
 // this.setState({
 //  testVar:789
@@ -397,6 +411,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Login from './Login/Login';
 import Registration from './Registration/Registration'
+import Users from './Users/Users'
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -449,20 +465,32 @@ class Index extends React.Component {
 
         return (
 
-            <h1>The page you are looking for diesnot exist 404 !!!</h1>
+            <h1>The page you are looking for doesnot exist 404 !!!</h1>
 
             )
 
     }
+
+
     
 
     render() {
+
+        // const myStyle= { 
+        //     container:{
+        //         marginBottom:this.props.color
+        //     },
+        //     row: {
+
+        //     }
+        //     marginBottom:'10px'
+        // }
         // jsx wrap error 
         return (
             <Router>
 
                 <Container>
-                  <Row style={{marginBottom:'50px'}}>
+                  <Row s>
                     <Col sm={8}>
 
                     <Card style={{ width: '18rem' }}>
@@ -497,12 +525,18 @@ class Index extends React.Component {
                      <Nav.Item>
                         <Nav.Link as={Link} to="/registration" >Registration</Nav.Link>
                       </Nav.Item>
+                      <Nav.Item>
+                        <Nav.Link as={Link} to="/registration" >Registration</Nav.Link>
+                      </Nav.Item>
+                        <Nav.Item>
+                        <Nav.Link as={Link} to="/users" >User List</Nav.Link>
+                      </Nav.Item>
                     </Nav>
                 </div>
                   </Row>
                   <Row>
                   </Row>
-                    < this.Footer /> // because this is in this class 
+                    
             </Container>
 
             
@@ -519,13 +553,17 @@ class Index extends React.Component {
             */}
 
 
-                <Route exact path="/login" component={Login} />
+                <Route exact path="/login"  component={Login} />
 
                 <Route exact path="/registration">
                     < Registration />
                 </Route>
 
-                <Route  component={this.Notfound} />
+                <Route exact path="/users">
+                    < Users />
+                </Route>
+
+                <Route component={this.Notfound} />
 
                 
 

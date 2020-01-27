@@ -26,6 +26,8 @@ class Registration extends React.Component {
 
         }
 
+
+
         usernameHandler = (e) => {
         	this.setState({username:e.target.value})
         	if(e.target.value.length < 6){
@@ -54,11 +56,10 @@ class Registration extends React.Component {
 		        	//FORMdata
 
 		        	var headers = {
-		        		'Content-Type':'application/json'
+		        	
 
 		        	}
 
-		        	//fetch
 		        	Axios.post(
 		        		//url
 		        		//data -> js oject this.state,
@@ -89,13 +90,7 @@ class Registration extends React.Component {
         	if(this.state.redirect == true){
 
         		return(
-        				<Toast>
-					  <Toast.Header>
-					    <strong className="mr-auto">Bootstrap</strong>
-					    <small>11 mins ago</small>
-					  </Toast.Header>
-					  <Toast.Body>{this.state.message}</Toast.Body>
-					</Toast>
+
         				<Redirect to='/login' />
         			)
 
@@ -106,6 +101,8 @@ class Registration extends React.Component {
 
 
             return (
+
+
 
                 <Form onSubmit={this.submitHandler} >
 				  <Form.Group controlId="formBasicEmail">
@@ -135,6 +132,5 @@ class Registration extends React.Component {
             )
 
         }
-        // ReactDOM.render( < Login />)
 }
         export default Registration

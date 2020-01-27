@@ -10,7 +10,9 @@ constructor(props){
 	super(props);
 	this.state = { 
 		username:'',
-		password:''
+		password:'',
+		redirect:''
+
 	}
 	// this.submitHandler = this.submitHandler.bind(this)
 }
@@ -18,11 +20,19 @@ constructor(props){
 // function submitHandler() {
 
 // }
-changeHandler = (e) => {
+changeHandlerUsername = (e) => {
 
 	// e.target.value 
-	// this.setState({username:e.target.value,password:e.target.value})
-    this.setState({[e.target.name] : e.target.value})
+	this.setState({username:e.target.value})
+    // this.setState({[e.target.name] : e.target.value})
+
+}
+
+changeHandlerPassword = (e) => {
+
+	// e.target.value 
+	this.setState({password:e.target.value})
+    // this.setState({[e.target.name] : e.target.value})
 
 }
 
@@ -52,7 +62,9 @@ fetch('http://localhost:3023/login',{ //FormData
 .then( (response) => response.json())
 .then((data) => {
 
-	console.log(data)
+	console.log(data.userToken)
+	localStorage.setItem("Assignment_Usr_Token",data.userToken);
+
 
 })
 // .then(function(response){
@@ -72,12 +84,26 @@ fetch('http://localhost:3023/login',{ //FormData
 
 render(){
 
+	// redirect from suer list 
+
+
 return (
+
+<div>
+
+	{
+		this.props.location.state !== undefined ? <p>{this.props.location.state}</p> : null
+	}
+
+
+
+
+
 
 <Form onSubmit={this.submitHandler}>
   <Form.Group controlId="formBasicEmail">
     <Form.Label>Email address</Form.Label>
-    <Form.Control  type="text" name="username" placeholder="Enter email" value={this.state.username} onChange={this.changeHandler} />
+    <Form.Control  type="text" name="username" placeholder="Enter email" value={this.state.username} onChange={this.changeHandlerUsername} />
     <Form.Text className="text-muted">
       We'll never share your email with anyone else.
     </Form.Text>
@@ -85,13 +111,14 @@ return (
 
   <Form.Group controlId="formBasicPassword">
     <Form.Label>Password</Form.Label>
-    <Form.Control type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.changeHandler} />
+    <Form.Control type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.changeHandlerPassword} />
   </Form.Group>
   <Button variant="primary" type="submit">
     Submit
   </Button>
 </Form>
 
+</div>
 
 	)
 
